@@ -20,7 +20,7 @@ struct Args {
   #[clap(short, long, value_parser, default_value = "standard")]
   banner: BannerType,
 
-  #[clap(short, long, value_parser, default_value = "100")]
+  #[clap(short, long, value_parser, default_value = "300")]
   pulls: u64,
 
   #[clap(short, long, value_parser, default_value = "10")]
@@ -51,7 +51,7 @@ fn main() {
   let res = dp_noaccel(pull_args);
   println!("WIP output:");
   for i in 0..args.max_count as usize {
-    println!("{}x: {}", i, 100.0 * res.n6[i] as f64 / (u32::MAX as f64));
+    println!("{}x: {}", i, res.n6[i] as f64 / (u32::MAX as f64));
   }
-  println!(">{}x: {}", args.max_count - 1, 100.0 * res.n6[args.max_count as usize] as f64 / (u32::MAX as f64));
+  println!(">{}x: {}", args.max_count - 1, res.n6[args.max_count as usize] as f64 / (u32::MAX as f64));
 }

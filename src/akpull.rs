@@ -33,7 +33,7 @@ pub fn dp_noaccel(args: AkPullArgs) -> AkPullResult {
   let mut overmax = 0u64;
   state0[0] = u32::MAX as u64;
   for i in 0..args.pulls as usize {
-    println!("{:?}", state0);
+    if i < 10 { println!("{:?}", state0); }
     for j in 0..args.max_count as usize {
       // zero pity draws 0.02 from everyone else
       if j > 0 {
